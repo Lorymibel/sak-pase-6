@@ -1,0 +1,44 @@
+
+// var cart = [];
+
+// function addToCart(item) {
+
+  cart.push(item);
+
+  console.log(item + " added to cart!");
+
+}
+
+// function displayCart() {
+
+  console.log("Cart contents:");
+
+  for (var i = 0; i < cart.length; i++) {
+
+    console.log("- " + cart[i]);
+
+  }
+
+}
+
+ //function checkout() 
+
+  // Calculate total cost of items in cart
+
+  var total = 0;
+
+  for (var i = 0; i < cart.length; i++) {
+
+  // total += 10;
+
+  }
+
+  // var cardNumber = prompt("Enter your credit card number:");
+
+  var cardExpiration = prompt("Enter your credit card expiration date:");
+
+  var cvv = prompt("Enter your CVV code:");
+// console.log("Thank you for your purchase! Your total is $" + total.toFixed(2));
+
+}
+
