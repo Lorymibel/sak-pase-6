@@ -371,9 +371,59 @@ footer {
   </head>
 
   <body>
+<script>
+// select all add to cart buttons
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
-    <!-- Your HTML code goes here -->
+// select cart items list and total price element
+const cartItems = document.querySelector('#cart-items');
+const cartTotal = document.querySelector('#cart-total');
 
+// initialize cart items array and total price
+let itemsInCart = [];
+let totalPrice = 0;
+
+// loop through each add to cart button and add a click event listener
+addToCartButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // get the name and price of the product from the data attributes
+    const productName = button.dataset.name;
+    const productPrice = parseFloat(button.dataset.price);
+
+    // create a new cart item object with the name and price
+    const newItem = {
+      name: productName,
+      price: productPrice
+    }
+
+    // add the new item to the items in cart array
+    itemsInCart.push(newItem);
+
+    // update the cart items list and total price
+    updateCart();
+  });
+});
+
+// function to update the cart items list and total price
+function updateCart() {
+  // clear the cart items list
+  cartItems.innerHTML = '';
+
+  // loop through each item in the cart and add a list item element to the cart items list
+  itemsInCart.forEach(item => {
+    const newItem = document.createElement('li');
+    newItem.innerText = `${item.name} - $${item.price.toFixed(2)}`;
+    cartItems.appendChild(newItem);
+  });
+
+  // calculate the total price of all items in the cart
+  totalPrice = itemsInCart.reduce((total, item) => total + item.price, 0);
+
+  // update the cart total price element
+  cartTotal.innerText = `Total: $${totalPrice.toFixed(2)}`;
+}
+</script >
+  
   </body>
 
 </html>
